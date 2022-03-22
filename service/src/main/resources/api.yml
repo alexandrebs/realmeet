@@ -1,15 +1,13 @@
 openapi: 3.0.0
 info:
-  version: '1.0.0'
-  title: 'realmeet'
-  license:
-    name: MIT
+  version: 1.0.0
+  title: realmeet
 servers:
-  - url: 'localhost:3000'
+  - url: 'http://localhost:3000'
 paths:
   /rooms:
     get:
-      summary: 'Return Rooms'
+      summary: 'Return rooms'
       operationId: listRooms
       tags:
         - room
@@ -17,18 +15,12 @@ paths:
         - name: id
           in: query
           description: ID of the room
-          required: true
           schema:
             type: integer
             format: int64
       responses:
         '200':
-          description: 'Okay'
-          headers:
-            x-next:
-              description: A link to the next page of responses
-              schema:
-                type: string
+          description: 'OK'
           content:
             application/json:
               schema:
@@ -60,9 +52,3 @@ components:
           format: int32
         message:
           type: string
-  securitySchemes:
-    BasicAuth:
-      type: http
-      scheme: basic
-security:
-  - BasicAuth: []
