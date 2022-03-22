@@ -2,17 +2,18 @@ version: 0.2
 
 phases:
   install:
-    runtime-version:
+    runtime-versions:
       java: corretto11
-      docker: 20
-    build:
-      commands:
-        - echo Build started on `date`
-        - mvn clean package
-artefacts:
+      docker: 19
+  build:
+    commands:
+      - echo Build started on `date`
+      - mvn clean package
+
+artifacts:
   files:
     - service/target/*.jar
-  discart-paths: yes
+  discard-paths: yes
 
 cache:
   paths:
